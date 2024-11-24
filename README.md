@@ -4,7 +4,6 @@ import pandas as pd
 import mysql.connector
 import os
 
-# List of CSV files and their corresponding table names
 csv_files = [
     ('customers.csv', 'customers'),
     ('orders.csv', 'orders'),
@@ -15,7 +14,7 @@ csv_files = [
     ('order_items.csv', 'order_items')
 ]
 
-# Connect to the MySQL database
+
 conn = mysql.connector.connect(
     host='your_host',
     user='your_username',
@@ -24,7 +23,7 @@ conn = mysql.connector.connect(
 )
 cursor = conn.cursor()
 
-# Folder containing the CSV files
+
 folder_path = 'path_to_your_folder'
 
 def get_sql_type(dtype):
@@ -70,5 +69,4 @@ for csv_file, table_name in csv_files:
     # Commit the transaction for the current CSV file
     conn.commit()
 
-# Close the connection
 conn.close()
